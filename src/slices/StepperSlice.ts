@@ -43,8 +43,7 @@ const stepperSlice = createSlice({
             return {
                 ...state,
                 total: questions.length,
-                questions,
-                
+                questions, 
             }
         },
         RemoveQuestion(state: StepperState, action: PayloadAction<RemoveQuestionPayload>) {
