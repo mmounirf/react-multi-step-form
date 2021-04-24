@@ -25,6 +25,18 @@
     "eject": "react-scripts eject",
     "deploy": "yarn build && gh-pages -d build"
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.tsx",
+      "!src/index.tsx"
+    ],
+    "coverageReporters": [
+      "text"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -44,6 +56,12 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0"
+    "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.2",
+    "gh-pages": "^3.1.0",
+    "react-test-renderer": "^17.0.2"
   }
 }
