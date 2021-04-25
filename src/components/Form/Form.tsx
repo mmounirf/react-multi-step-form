@@ -1,13 +1,19 @@
 import { useState, useEffect } from 'react';
+import axios, { AxiosResponse } from 'axios';
 import Stepper from '../Stepper/Stepper';
 import FormQuestion from '../FormQuestion/FormQuestion';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { AddQuestion, RemoveQuestion } from '../../slices/StepperSlice';
+import { SetUser } from '../../slices/UserSlice';
+import { SetErrors } from '../../slices/ErrorsSlice';
 import { childrenOptionalQuestion } from '../../constants/QuestionsData';
+import { API_POST_USER } from '../../constants/ApiConstants';
 import { IForm } from '../../interfaces/Form';
+import { IUser } from '../../interfaces/User';
 import { stringToBoolean } from '../../utils/common';
-import { loadForm, saveForm } from '../../utils/localStorage';
+import { loadForm, saveForm, saveUser } from '../../utils/localStorage';
+
 import "./Form.scss";
 
 
@@ -84,7 +90,19 @@ const Form: React.FunctionComponent = () => {
         email
       }
       setAddUserRequestLoading(true);
-      console.log(data)
+      axios.post(API_POST_USER, data).then((response: AxiosResponse<IUser>) => {
+        saveUser(response.data);
+        dispatch(SetUser(response.data));
+        setAddUserRequestLoading(false);
+      }).catch(error => {
+        if (error.response) {
+          dispatch(SetErrors(error.response.data.errors));
+        } else {
+          const { name, message } = error.toJSON();
+          dispatch(SetErrors([{[name]: [message]}]));
+        }
+        setAddUserRequestLoading(false);
+      })
     };
 
     const formSteps = questions.map(({ id, title, answer }) => (
