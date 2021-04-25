@@ -25,6 +25,12 @@
         }
 
         &__navigation {
+            @include media(mobile) {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
             .nav-button {
                 @include secondary-button;
                 margin-left: 20px;

@@ -7,6 +7,7 @@ import { AddQuestion, RemoveQuestion } from '../../slices/StepperSlice';
 import { childrenOptionalQuestion } from '../../constants/QuestionsData';
 import { IForm } from '../../interfaces/Form';
 import { stringToBoolean } from '../../utils/common';
+import { loadForm, saveForm } from '../../utils/localStorage';
 import "./Form.scss";
 
 
@@ -22,7 +23,9 @@ const Form: React.FunctionComponent = () => {
     const dispatch = useAppDispatch();
     const questions = useAppSelector((state) => state.stepper.questions);
     const currentStep = useAppSelector((state) => state.stepper.currentStep);
-    const [formState, setFormState] = useState<IForm>(initialFormState);
+    const previouslySavedForm = loadForm();
+    const formValues = previouslySavedForm ? previouslySavedForm : initialFormState;
+    const [formState, setFormState] = useState<IForm>(formValues);
     const [addUserRequestLoading, setAddUserRequestLoading] = useState<boolean>(false);
 
   
@@ -49,6 +52,7 @@ const Form: React.FunctionComponent = () => {
           setFormState(newFormState);
         }
       }
+      saveForm(formState);
     }, [formState, questions, dispatch]);
 
     const isFormValid = () => {
