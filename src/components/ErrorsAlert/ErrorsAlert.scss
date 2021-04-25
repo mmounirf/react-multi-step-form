@@ -1,0 +1,10 @@
+@import "../../varibles.scss";
+
+.errors {
+    .message {
+        color: $alert-error-text;
+        background-color: $alert-error-bg;
+        padding: 6px 16px;
+        border-radius: 4px;
+    }
+}
