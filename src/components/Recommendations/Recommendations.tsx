@@ -10,8 +10,8 @@ import { IRecommendation } from "../../interfaces/Recommendation";
 import { API_GET_RECOMMENDATION } from "../../constants/ApiConstants";
 import { InsuranceTypes, Periodicity } from "../../constants/RecommendationConstants";
 import { saveRecommendations, removeRecommendations, removeUser } from "../../utils/localStorage";
-import "./Recommendations.scss";
 import { SetCurrentStep } from "../../slices/StepperSlice";
+import "./Recommendations.scss";
 
 const Recommendations: FunctionComponent = () => {
   const dispatch = useAppDispatch();
