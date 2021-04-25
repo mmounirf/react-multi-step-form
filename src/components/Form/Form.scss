@@ -1,0 +1,25 @@
+@import "../../mixins.scss";
+
+.form{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__submit {
+        @include primary-button;
+        @include media(mobile) {
+            width: 90%;
+        }
+        width: 50%;
+    }
+
+    &__errors {
+        .message {
+            color: $alert-error-text;
+            background-color: $alert-error-bg;
+            padding: 6px 16px;
+            border-radius: 4px;
+        }
+    }
+}

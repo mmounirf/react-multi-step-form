@@ -1,0 +1,1 @@
+export const stringToBoolean = (string: string) => string === "false" ? false : !!string;
