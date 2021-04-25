@@ -32,8 +32,10 @@ describe("<Stepper> component", () => {
       expect(component).toHaveLength(1);
     });
 
-    it("to have on question at a time", () => {
-        expect(component.find('.stepper__content').children.length).toEqual(1);
+    it("should have children equals to total number of questions", () => {
+        let stepperState = store.getState().stepper;
+        expect(component.children().length).toEqual(stepperState.total);
+        expect(component.children().length).toEqual(stepperState.questions.length);
     });
 
   });

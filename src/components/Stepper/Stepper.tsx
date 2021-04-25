@@ -2,6 +2,7 @@
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { SetCurrentStep } from '../../slices/StepperSlice';
+import './Stepper.scss';
 
 interface StepperProps {
     currentStep: number;
