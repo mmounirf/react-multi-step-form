@@ -13,8 +13,8 @@ import { IForm } from '../../interfaces/Form';
 import { IUser } from '../../interfaces/User';
 import { stringToBoolean } from '../../utils/common';
 import { loadForm, saveForm, saveUser } from '../../utils/localStorage';
-import "./Form.scss";
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import "./Form.scss";
 
 
 const initialFormState = {
@@ -81,6 +81,7 @@ const Form: React.FunctionComponent = () => {
     }
 
     const formSubmit = () => {
+      dispatch(SetErrors([]));
       const { numberOfChildren, firstName, address, occupation, email } = formState;
       const data = {
         firstName,

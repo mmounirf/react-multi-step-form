@@ -14,10 +14,13 @@ const userSlice = createSlice({
             return {
                 jwt: action.payload.jwt
             }
+        },
+        ResetUser() {
+            return initialUserState
         }
     }
 });
 
 export const userReducer = userSlice.reducer;
-export const { SetUser } = userSlice.actions;
+export const { SetUser, ResetUser } = userSlice.actions;
 export default userSlice;

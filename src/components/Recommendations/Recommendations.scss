@@ -1,0 +1,55 @@
+@import "../../mixins.scss";
+@import "../../varibles.scss";
+
+.recommendations {
+    width: 70%;
+
+    &__title, &__subtitle {
+        margin: 0;
+    }
+
+    &__list {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    &__item {
+        height: 50px;
+        border: 2px solid $primary-color;
+        border-radius: 4px;
+        box-sizing: border-box;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: none;
+        cursor: pointer;
+        @include smooth-transition(transform, box-shadow);
+
+        .title, .price {
+            margin: 0;
+        }
+        &:hover {
+            box-shadow: 0 20px 38px rgba(0,0,0,0.16);
+            transform: translateY(-3px);
+        }
+    }
+
+    &__reset {
+        margin-top: 100px;
+        width: 100%;
+        @include primary-button;
+    }
+
+    .loadingSkeletons {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+
+}

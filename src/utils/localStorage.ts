@@ -1,5 +1,6 @@
 import { IForm } from '../interfaces/Form';
 import { IUser } from '../interfaces/User';
+import { IRecommendation } from '../interfaces/Recommendation';
 
 export function setLocalStorage<T>(name: string, payload: T): void {
   try {
@@ -27,3 +28,7 @@ export const loadForm = (): IForm | undefined => getLoclStorage('@mou/formAnswer
 export const saveForm = (formAnswers: IForm): void => setLocalStorage('@mou/formAnswers', formAnswers);
 export const loadUser = (): IUser | undefined => getLoclStorage('@mou/user');
 export const saveUser = (user: IUser): void => setLocalStorage('@mou/user', user);
+export const removeUser = (): void => localStorage.removeItem('@mou/user');
+export const loadRecommendations = (): Array<IRecommendation> | undefined => getLoclStorage('@mou/recommendations');
+export const saveRecommendations = (recommendations: Array<IRecommendation>): void => setLocalStorage('@mou/recommendations', recommendations);
+export const removeRecommendations = (): void => localStorage.removeItem('@mou/recommendations');

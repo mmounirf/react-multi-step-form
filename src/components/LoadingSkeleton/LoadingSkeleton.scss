@@ -1,0 +1,34 @@
+.loading-skeleton {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.05);
+    width: fit-content;
+    color: transparent;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1'%3e%3cdefs%3e%3clinearGradient spreadMethod='pad' id='gradient' x1='0%25' y1='0%25' x2='50%25' y2='0'%3e%3cstop offset='0%25' stop-color='transparent'/%3e%3cstop offset='50%25' stop-color='rgba(0, 0, 0, 0.04)'/%3e%3cstop offset='100%25' stop-color='transparent'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect width='50%25' height='100%25' y='0' x='0' fill='url(%23gradient)'/%3e%3c/svg%3e");
+        background-size: 400% 400%;
+        animation: wave 1s linear 0.7s infinite;
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    60% {
+        transform: translate3d(100%, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(100%, 0, 0);
+    }
+}
