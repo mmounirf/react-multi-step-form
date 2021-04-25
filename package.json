@@ -1,7 +1,7 @@
 {
   "name": "react-multi-step-form",
   "version": "0.1.0",
-  "homepage": "http://mmounirf.github.io/react-multi-step-form",
+  "homepage": ".",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
